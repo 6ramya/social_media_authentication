@@ -69,12 +69,8 @@ class SignInPage extends StatelessWidget {
                 onPrimary: Colors.black,
                 minimumSize: Size(double.infinity, 50)),
             onPressed: () async {
-              print('twitter sign in');
-              UserCredential? result = await TwitterSignIn().twitterSignIn();
-              print('resource');
-              print(result);
-              // print(result);
-              // print(TwitterSignIn().twitterSignIn());
+              TwitterSignIn().twitterSignIn();
+           
             },
             icon: FaIcon(FontAwesomeIcons.twitter, color: Colors.blue),
             label: Text('Sign Up with Twitter')),
