@@ -12,8 +12,7 @@ class TwitterSignIn {
         apiSecretKey: 'EDll4Xek26lWbAXqkurQ4QkIV3aCwsZ8s0UsjzFt2sv2MLsk9M',
         redirectURI: 'twitter-firebase-auth://');
     final AuthResult result = await twitterLogin.login();
-    print(result.authToken);
-    print(result.authTokenSecret);
+
     final AuthCredential twitterAuthCredential = TwitterAuthProvider.credential(
         accessToken: result.authToken!, secret: result.authTokenSecret!);
 
@@ -22,35 +21,3 @@ class TwitterSignIn {
   }
 }
 
-//     print('Twitter Login');
-//     print(twitterLogin.login());
-
-//     print('result');
-//     final AuthResult result = await twitterLogin.login().then((value) {
-//       print(value.status);
-//       return value;
-//     });
-//     print(result);
-
-//     switch (result.status) {
-//       case TwitterLoginStatus.loggedIn:
-//         print(result.status);
-//         final AuthCredential twitterAuthCredential =
-//             TwitterAuthProvider.credential(
-//                 accessToken: result.authToken!,
-//                 secret: result.authTokenSecret!);
-
-//         final userCredential = await FirebaseAuth.instance
-//             .signInWithCredential(twitterAuthCredential);
-//         return Resource(status: Status.Success);
-//       case TwitterLoginStatus.cancelledByUser:
-//         print(result.status);
-//         return Resource(status: Status.Success);
-//       case TwitterLoginStatus.error:
-//         print(result.status);
-//         return Resource(status: Status.Error);
-//       default:
-//         return null;
-//     }
-//   }
-// }
